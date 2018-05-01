@@ -1,0 +1,8 @@
+﻿<Application
+    x:Class="SharepointXamarin.UWP.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SharepointXamarin.UWP"
+    RequestedTheme="Light">
+
+</Application>
