@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="SharepointXamarin.Pages.MailPage" Title="{Binding Title}">
+    <ContentPage.Content>
+        <StackLayout>
+             <ActivityIndicator VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" 
+                            AbsoluteLayout.LayoutFlags="PositionProportional"
+                           IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"  />
+            
+   <ListView ItemsSource="{Binding ListMail, Mode=TwoWay}"  SelectedItem="{Binding SelectedListMail, Mode=TwoWay}">
+    <ListView.ItemTemplate>
+      <DataTemplate>
+         <TextCell Text="{Binding Subject}" Detail="{Binding Sender.EmailAddress.Name}" />
+         </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+                 
+       </StackLayout> 
+    </ContentPage.Content>
+</ContentPage>

@@ -22,9 +22,12 @@ namespace SharepointXamarin.ViewModels
         public HomeViewModel(INavigationService navigationService, IGraphService graphWebService) : base(navigationService, graphWebService)
         {
             this.Title = "Mis datos";
+
         }
 
         private ICommand cerrarCommand;
+
+        private ICommand correoCommand;
 
 
         /// <summary>
@@ -33,6 +36,19 @@ namespace SharepointXamarin.ViewModels
         public ICommand CerrarCommand
         {
             get { return cerrarCommand = cerrarCommand ?? new Command(DoCloseHandler); }
+        }
+
+        /// <summary>
+        /// Command que ejecuta la función de realizar el login
+        /// </summary>
+        public ICommand CorreoCommand
+        {
+            get { return correoCommand = correoCommand ?? new Command(DoCorreoHandler); }
+        }
+
+        private async void DoCorreoHandler(object obj)
+        {
+            await this.navigationService.NavigateToAsync<MailViewModel>();
         }
 
         private async void DoCloseHandler(object obj)
@@ -94,13 +110,15 @@ namespace SharepointXamarin.ViewModels
 
         public override async Task Appearing(object parameter)
         {
+
+            var ae = await this.graphWebService.GetMailInbox();
             this.IsBusy = true;
             this.Profile = await this.graphWebService.GetProfile();
 
             var response = await this.graphWebService.GetPeople();
             this.IsBusy = false;
             if(response.IsCorrect){
-                this.ListPeople = response.Peoples;   
+                this.ListPeople = response.People;   
             }
 
 

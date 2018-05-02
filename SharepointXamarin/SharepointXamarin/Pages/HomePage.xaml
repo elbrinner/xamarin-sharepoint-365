@@ -4,12 +4,12 @@
              xmlns:template="clr-namespace:SharepointXamarin.Template"
              x:Class="SharepointXamarin.Pages.HomePage" Title="{Binding Title}">
         <ContentPage.ToolbarItems>
-             <ToolbarItem Text="Cerrar" Command="{Binding CerrarCommand}">
-        </ToolbarItem>
+              <ToolbarItem Text="Correo" Command="{Binding CorreoCommand}"> </ToolbarItem>
+             <ToolbarItem Text="Cerrar" Command="{Binding CerrarCommand}"> </ToolbarItem>
     </ContentPage.ToolbarItems>
      
     <ContentPage.Content>
-     
+    <AbsoluteLayout>
 
          <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="White">
             <Grid.RowDefinitions>
@@ -17,8 +17,11 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
+                     
 
              <StackLayout Grid.Row="0">
+
+                
 
                 <Label Text="{Binding Profile.GivenName}" FontSize="40" HorizontalTextAlignment="Center"  />
                 <Label Text="{Binding Profile.JobTitle}"  FontSize="14"   HorizontalTextAlignment="Center"  />
@@ -26,7 +29,7 @@
                 <Label Text="Listado de mis contactos" BackgroundColor="Silver" TextColor="Maroon"></Label>
             </StackLayout>
            
-               <ListView SeparatorVisibility="Default" Grid.Row="1" Grid.RowSpan="2"  ItemsSource="{Binding ListPeople}" >
+               <ListView SeparatorVisibility="Default" Grid.Row="1"  ItemsSource="{Binding ListPeople}" >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <ViewCell>
@@ -36,13 +39,14 @@
                         </ListView.ItemTemplate>
               </ListView>
 
-           <ActivityIndicator VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
-                            AbsoluteLayout.LayoutFlags="PositionProportional"
-                           IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"  />
+
+                
             
          </Grid>
 
-        
-      
+                <ActivityIndicator  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
+                            AbsoluteLayout.LayoutFlags="PositionProportional"
+                           IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"  />
+      </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

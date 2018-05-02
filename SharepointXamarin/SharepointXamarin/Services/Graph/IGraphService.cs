@@ -15,5 +15,7 @@ namespace SharepointXamarin.Services.Graph
 
         Task<PeopleResponse> GetPeople();
 
+        Task<MailResponse> GetMailInbox();
+
     }
 }

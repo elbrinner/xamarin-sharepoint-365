@@ -15,9 +15,7 @@ namespace SharepointXamarin.Constants
         /// Permisos que necesita la aplicación.
         /// Algunos permisos deben ser aprobados por el administrador
         /// </summary>
-        //  public static string[] Scopes = { "User.Read" };
-
-        public static string[] Scopes = { "User.Read" };
+        public static string[] Scopes = { "User.Read" , "Mail.Read"  };
 
 
 

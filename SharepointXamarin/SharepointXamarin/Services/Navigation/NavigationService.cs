@@ -19,10 +19,13 @@ namespace SharepointXamarin.Services.Navigation
             mappings = new Dictionary<Type, Type>();
             CreatePageViewModelMappings();
         }
+
         private IDictionary<Type, Type> viewModelRouting = new Dictionary<Type, Type>()
         {
             { typeof(HomeViewModel), typeof(HomePage)},
             { typeof(LoginViewModel), typeof(LoginPage)},
+            { typeof(MailViewModel), typeof(MailPage)},
+            { typeof(WebViewModel), typeof(WebViewPage)},
 
         };
 
@@ -30,9 +33,10 @@ namespace SharepointXamarin.Services.Navigation
         {
             mappings.Add(typeof(HomeViewModel), typeof(HomePage));
             mappings.Add(typeof(LoginViewModel), typeof(LoginPage));
-
-
+            mappings.Add(typeof(MailViewModel), typeof(MailPage));
+            mappings.Add(typeof(WebViewModel), typeof(WebViewPage));
         }
+
         public  Task InitializeAsync()
         {
             var token = Settings.GeneralSettings; 

@@ -4,9 +4,9 @@ using Newtonsoft.Json;
 
 namespace SharepointXamarin.Models
 {
-    public class PeopleResponse : BaseModel
+    public class MailResponse : BaseModel
     {
         [JsonProperty("value")]
-        public List<People> People { get; set; }
+        public List<Mail> Mail { get; set; }
     }
 }

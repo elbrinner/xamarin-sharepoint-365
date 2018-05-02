@@ -32,11 +32,20 @@ namespace SharepointXamarin.ViewModels
 
         private async void DoLoginHandler(object obj)
         {
-            bool result = await this.graphWebService.GetTokenAsync();
-            if(result){
-                await this.navigationService.NavigateToAsync<HomeViewModel>();
-            }
+            try
+            {
+                bool result = await this.graphWebService.GetTokenAsync();
+                if (result)
+                {
+                    await this.navigationService.NavigateToAsync<HomeViewModel>();
+                }
 
+            }
+            catch (Exception ex)
+            {
+
+            }
+           
         }
     }
 }

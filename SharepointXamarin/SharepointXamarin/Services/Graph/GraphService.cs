@@ -22,6 +22,39 @@ namespace SharepointXamarin.Services.Graph
         {
         }
 
+        public async Task<MailResponse> GetMailInbox()
+        {
+            string url = WebServiceConstant.MailInbox;
+
+            AuthenticationHeaderValue token = new AuthenticationHeaderValue("bearer", Settings.GeneralSettings);
+            conection.ClientHttp().DefaultRequestHeaders.Authorization = token;
+            MailResponse response = new MailResponse();
+            try
+            {
+
+                var result = await conection.ClientHttp().GetAsync(url);
+                if (result.IsSuccessStatusCode)
+                {
+                    string content = await result.Content.ReadAsStringAsync();
+                    if (content != null)
+                    {
+                        response = JsonConvert.DeserializeObject<MailResponse>(content);
+                        response.IsCorrect = true;
+                        return response;
+                    }
+                }
+
+              
+
+            }
+            catch (Exception ex)
+            {
+                
+            }
+
+            return response;
+        }
+
         public async Task<PeopleResponse> GetPeople()
         {
 
@@ -103,11 +136,11 @@ namespace SharepointXamarin.Services.Graph
             catch (Exception ex)
             {
 
-                throw;
+                return false;
             }
         
 
-            return true;
+            return false;
         }
 
 
