@@ -46,7 +46,7 @@ namespace SharepointXamarin
         protected async override void OnStart ()
 		{
             base.OnStart();
-            AppCenter.Start("android=5d9dede4-de8e-4996-992c-6aa65d1475d4;" + "ios=0551ae74-0da9-49f8-8bbd-5dcbf79a40e8; " + "uwp=56c69656-c78b-4bd6-b7b4-bc453e93d92d;", typeof(Analytics), typeof(Crashes));
+            AppCenter.Start("android=5d9dede4-de8e-4996-992c-6aa65d1475d4;" + "ios=c6dc5896-6eca-4659-8ef3-aa068951021d; " + "uwp=56c69656-c78b-4bd6-b7b4-bc453e93d92d;", typeof(Analytics), typeof(Crashes));
 
             await InitNavigation();
         }
