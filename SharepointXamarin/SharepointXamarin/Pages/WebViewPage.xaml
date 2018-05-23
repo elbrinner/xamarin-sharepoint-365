@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="SharepointXamarin.Pages.WebViewPage" Title="{Binding Title}">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:controls="clr-namespace:SharepointXamarin.Controls;assembly=SharepointXamarin"
+             x:Class="SharepointXamarin.Pages.WebViewPage" Title="{Binding Title}">
     <ContentPage.Content>
         
-      <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+      <StackLayout>
             
-          <AbsoluteLayout>
-            <WebView x:Name="webview"
-WidthRequest="200" HeightRequest="200"  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+          
+             <controls:ExtendedWebView  x:Name="webview"
+                          HeightRequest="300" 
+                          HorizontalOptions="Fill"
+                          VerticalOptions="StartAndExpand" >
                   <WebView.Source>
         <HtmlWebViewSource Html="{Binding MyHtml}"/>
     </WebView.Source>
-                    </WebView>
-        </AbsoluteLayout>
-        <ActivityIndicator x:Name="loadIndicator" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
-                            AbsoluteLayout.LayoutFlags="PositionProportional"
-                            />
-    </Grid>
+                    </controls:ExtendedWebView>
+
+   </StackLayout> 
     </ContentPage.Content>
 </ContentPage>

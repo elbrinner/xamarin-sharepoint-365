@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AppCenter.Crashes;
 using Microsoft.Identity.Client;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -49,7 +50,7 @@ namespace SharepointXamarin.Services.Graph
             }
             catch (Exception ex)
             {
-                
+                Crashes.TrackError(ex);
             }
 
             return response;
@@ -83,7 +84,7 @@ namespace SharepointXamarin.Services.Graph
             }
             catch (Exception ex)
             {
-
+                Crashes.TrackError(ex);
             }
 
             return response;
@@ -114,7 +115,7 @@ namespace SharepointXamarin.Services.Graph
 
             }catch (Exception ex)
             {
-
+                Crashes.TrackError(ex);
             }
 
              return response;
@@ -135,7 +136,7 @@ namespace SharepointXamarin.Services.Graph
             }
             catch (Exception ex)
             {
-
+                Crashes.TrackError(ex);
                 return false;
             }
         

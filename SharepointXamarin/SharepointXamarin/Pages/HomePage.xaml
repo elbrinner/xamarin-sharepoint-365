@@ -9,7 +9,7 @@
     </ContentPage.ToolbarItems>
      
     <ContentPage.Content>
-    <AbsoluteLayout>
+    <RelativeLayout>
 
          <Grid RowSpacing="0" ColumnSpacing="0" BackgroundColor="White">
             <Grid.RowDefinitions>
@@ -44,9 +44,9 @@
             
          </Grid>
 
-                <ActivityIndicator  VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
+                <ActivityIndicator TranslationX="0.5" TranslationY="0.5"
                             AbsoluteLayout.LayoutFlags="PositionProportional"
                            IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"  />
-      </AbsoluteLayout>
+      </RelativeLayout> 
     </ContentPage.Content>
 </ContentPage>

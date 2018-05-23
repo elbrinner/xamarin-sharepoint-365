@@ -1,4 +1,5 @@
-﻿using Plugin.Settings;
+﻿using Microsoft.AppCenter.Analytics;
+using Plugin.Settings;
 using SharepointXamarin.Models;
 using SharepointXamarin.Services.Graph;
 using SharepointXamarin.Services.Navigation;
@@ -22,7 +23,7 @@ namespace SharepointXamarin.ViewModels
         public HomeViewModel(INavigationService navigationService, IGraphService graphWebService) : base(navigationService, graphWebService)
         {
             this.Title = "Mis datos";
-
+            Analytics.TrackEvent("Acceso en la página de home");
         }
 
         private ICommand cerrarCommand;
@@ -48,13 +49,14 @@ namespace SharepointXamarin.ViewModels
 
         private async void DoCorreoHandler(object obj)
         {
+            Analytics.TrackEvent("abrir listado de correos");
             await this.navigationService.NavigateToAsync<MailViewModel>();
         }
 
         private async void DoCloseHandler(object obj)
         {
             CrossSettings.Current.AddOrUpdateValue("settings", string.Empty);
-
+            Analytics.TrackEvent("Cerrar sesión");
             foreach (var user in App.PCA.Users)
             {
                 App.PCA.Remove(user);

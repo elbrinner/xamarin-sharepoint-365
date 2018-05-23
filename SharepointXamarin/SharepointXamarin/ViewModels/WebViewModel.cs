@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Microsoft.AppCenter.Analytics;
 using SharepointXamarin.Models;
 using SharepointXamarin.Services.Graph;
 using SharepointXamarin.Services.Navigation;
@@ -14,6 +15,7 @@ namespace SharepointXamarin.ViewModels
         public WebViewModel(INavigationService navigationService, IGraphService graphWebService) : base(navigationService, graphWebService)
         {
             this.Title = "Correo";
+            Analytics.TrackEvent("Acceso en la página correo");
         }
 
         public string MyHtml
@@ -36,6 +38,7 @@ namespace SharepointXamarin.ViewModels
             if(parameter!=null){
                  Mail data = parameter as Mail;
                 this.Title = data.Subject;
+
                 this.MyHtml = data.Body.Content;
 
             }

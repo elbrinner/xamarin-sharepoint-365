@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AppCenter.Analytics;
 using SharepointXamarin.Models;
 using SharepointXamarin.Services.Graph;
 using SharepointXamarin.Services.Navigation;
@@ -17,6 +18,8 @@ namespace SharepointXamarin.ViewModels
         {
             this.Title = "Bandeja de entrada";
             this.selectedListMail = null;
+
+            Analytics.TrackEvent("Acceso a la bandeja de entrada");
         }
 
         public List<Mail> ListMail
@@ -52,6 +55,7 @@ namespace SharepointXamarin.ViewModels
 
         private async void LoadData(Mail value)
         {
+            Analytics.TrackEvent("Navegación para la pantalla de leer correo");
             await this.navigationService.NavigateToAsync<WebViewModel>(value);
         }
 
